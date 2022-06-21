@@ -48,7 +48,9 @@ jobs:
           if-no-files-found: error # the tests should generate SVGs files
 
       - name: Adding markdown
-        run: echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
+        run: | 
+          echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
+          echo '![Example](./img/example.png)' >> $GITHUB_STEP_SUMMARY
 
       - name: Test installation in virtualenv
         run: make test_install ANSIBLE_VERSION=${{ matrix.ansible-version }}
